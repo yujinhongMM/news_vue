@@ -20,7 +20,7 @@
         <div class="login-center clearfix">
           <span class="lf" @click="clearCookie" style="cursor: pointer;color: #f19149;font-size: 0.75rem;margin-left: 5px;">忘记密码？</span>
           <div class="rf">
-            <el-checkbox v-model="checked" style="color:#a0a0a0;">一周内自动登录</el-checkbox>
+            <el-checkbox v-model="checked" style="color:#a0a0a0;">记住密码</el-checkbox>
           </div>
         </div>
 
@@ -72,7 +72,7 @@ export default {
               //判断复选框是否被勾选 勾选则调用配置cookie方法
               if (self.checked == true) {
                   //传入账号名，密码，和保存天数3个参数
-                  self.setCookie(self.ruleForm.username, self.ruleForm.password, 7);
+                  self.setCookie(self.ruleForm.username, self.ruleForm.password, 365);
               }else {
                 console.log("清空Cookie");
                 //清空Cookie

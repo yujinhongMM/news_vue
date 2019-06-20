@@ -21,7 +21,6 @@ export default new Vuex.Store({
             }else if(user == null){
                 // 登出的时候，清空sessionStorage里的东西
                 sessionStorage.setItem("userName",null);
-                sessionStorage.setItem("userToken","");
                 state.currentUser = null;
                 state.isLogin = false;
             }

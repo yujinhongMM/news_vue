@@ -26,7 +26,7 @@ export default {
     },
     methods:{
         async addReply(){
-            if(this.user.username){
+            if(this.isLogin){
                 if(this.items.text===''){
                     alert("内容不能为空！")
                     return;
@@ -69,7 +69,8 @@ export default {
     computed:{
         ...mapState({
             // 获取用户信息
-            user:state => state.currentUser
+            user:state => state.currentUser,
+            isLogin:state => state.isLogin
         })
     }
 }

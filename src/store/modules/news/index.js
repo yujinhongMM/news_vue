@@ -7,7 +7,9 @@ export default {
         // 新闻详细内容
         newsData:{},
         // 用户自己新闻列表
-        userNewsList:{}
+        userNewsList:{},
+        // 新闻热度排行列表
+        hotNewsList:{}
     },
     mutations:{
         // 设置新闻列表
@@ -20,6 +22,9 @@ export default {
         },
         set_UserNewsList(state,context){
             state.userNewsList = context;
+        },
+        set_HotNewsList(state,context){
+            state.hotNewsList = context;
         }
     },
     actions:{
@@ -51,6 +56,15 @@ export default {
                 url:apiList['userNewsList']
             });
             context.commit('set_UserNewsList', userNewsList.data);
+        },
+        // 获取新闻热度排行列表
+        async get_HotNewsList(context){
+            let hotNewsList = await http({
+                method:'post',
+                data:null,
+                url:apiList['hotNewsList']
+            });
+            context.commit('set_HotNewsList',hotNewsList.data)
         }
     },
     getters:{}

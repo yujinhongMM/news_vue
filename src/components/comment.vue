@@ -18,7 +18,9 @@
             <!--评论者时间点赞板块-->
             <div class="good">
                 <!--判断是不是自己发的评论，如果是自己发的评论则可以删除-->
-                <div class="deleteReply" @click="deleteComment(commentContent.commentId,commentContent.responder)" v-if="this.user.username === commentContent.responder">删除</div>
+                <div v-if="isLogin">
+                    <div class="deleteReply" @click="deleteComment(commentContent.commentId,commentContent.responder)" v-if="user.username === commentContent.responder">删除</div>
+                </div>
                 <!--回复评论-->
                 <div class="deleteReply" @click="clickReply">回复</div>
                 <!--评论者时间-->
@@ -118,8 +120,10 @@ export default {
         ...mapState({
            // 获取用户信息
             user:state => state.currentUser,
+            isLogin:state => state.isLogin,
             // 获取新闻内容
             newsData:state => state.news.newsData,
+
         })
     }
 }

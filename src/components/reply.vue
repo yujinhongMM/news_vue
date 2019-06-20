@@ -24,7 +24,9 @@
                     <!--回复者赞-->
                 <span class="reply-zan" href="javascript:;">
                     <!--判断该回复者是不是自己 是的话就可以删除-->
-                    <span class="reply-dele" v-if="this.user.username === replyContent.responder" @click="deleteReply(replyContent.replyId,replyContent.responder)">删除</span>
+                    <span v-if="isLogin">
+                        <span class="reply-dele" v-if="user.username === replyContent.responder" @click="deleteReply(replyContent.replyId,replyContent.responder)">删除</span>
+                    </span>
                     <span class="reply-dele" @click="clickReply">回复</span> 
                     <span>
                         <!--回复者时间-->
@@ -127,6 +129,7 @@ export default {
         ...mapState({
            // 获取用户信息
             user:state => state.currentUser,
+            isLogin:state => state.isLogin,
             // 获取新闻内容
             newsData:state => state.news.newsData
         })

@@ -30,7 +30,7 @@
             <!--左侧新闻结束-->
             <!--排行榜开始-->
             <div class="rigth_box">
-
+                <hotNewsList></hotNewsList>
             </div>
             <!--排行榜结束-->
         </div>
@@ -41,12 +41,14 @@
 // 导入头部
 import headerNav from '../components/headerNav';
 import newsList from '../components/newsList';
+import hotNewsList from '../components/hotNewsList';
 
 export default {
     name: 'homePage',
     components:{
             headerNav,
-            newsList
+            newsList,
+            hotNewsList
         },
     data () {
         return {
@@ -78,7 +80,8 @@ export default {
             border-right: 1px solid #c0bdbd85;
         }
         .rigth_box{
-            width: 29%;
+            width: 30%;
+            padding-right:2%; 
         }
     }
 }

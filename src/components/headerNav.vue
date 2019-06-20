@@ -1,7 +1,7 @@
 <template>
     <div id="headerNav">
         <div class="rigth">微微日报</div>
-        <div v-if="isLogin" class="left">
+        <div v-if="this.isLogin" class="left">
             <span>
                 欢迎你，{{user.username}}
             </span>
@@ -31,7 +31,7 @@ export default {
     name: 'headerNav',
     mounted() {
         let user=JSON.parse(localStorage.getItem("user"));
-        if(user.username){
+        if(user){
             // 将用户放入vuex
             this.$store.dispatch('get_User',user);
         }
@@ -45,7 +45,7 @@ export default {
         logout:function(){
             // 从localStorage删除所有保存的数据
             localStorage.setItem("user",null);
-            this.$store.dispatch('get_User',null);
+            this.$store.dispatch('get_User',undefined);
         },
         newsManage:function(){
             this.$router.push({ name: 'newsManagePage'});

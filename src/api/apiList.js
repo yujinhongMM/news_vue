@@ -30,5 +30,7 @@ const apiList = {
     addReply:host.concat('/reply/addReply'),
     // 删除回复
     deleteReply:host.concat('/reply/deleteReply'),
+    // 热门新闻列表
+    hotNewsList:host.concat('/news/hotNewsList')
 }
 module.exports = apiList;
